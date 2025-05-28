@@ -1,0 +1,15 @@
+{
+  "name": "back-express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
