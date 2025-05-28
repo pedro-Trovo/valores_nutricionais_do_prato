@@ -1,4 +1,5 @@
 # Valores Nutricionais do Prato
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
 
 # Sumário
