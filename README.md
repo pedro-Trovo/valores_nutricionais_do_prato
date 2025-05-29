@@ -1,5 +1,5 @@
 # Valores Nutricionais do Prato
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
 
 
 # Sumário
@@ -134,29 +134,75 @@ Este projeto foi desenvolvido com objetivo de criar um app que identifica alimen
 
 ```bash
 git clone https://github.com/pedro-Trovo/valores_nutricionais_do_prato.git
+```
+
+2. Entre na pasta backend:
+
+```bash
 cd valores_nutricionais_do_prato/back-express
 ```
 
-2. Instale as dependências:
+3. Instale as dependências:
 
 ```bash
 npm install
 ```
 
-3. Crie e configure o arquivo .env com as variáveis de ambiente (exemplo):
+4. Crie e configure o arquivo .env com as variáveis de ambiente (exemplo):
 ```bash
 DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=sua_senha
+DB_USER=???SEU_USUARIO???
+DB_PASSWORD=???SUA_SENHA???
 DB_NAME=db_vnp
 PORT=3000
 ```
 
-4. Inicie o servidor em modo desenvolvimento (com recarga automática):
+
+5. Iniciando o banco de dados: 
+
+Para criar o banco de dados e as tabelas, execute o comando:
+```bash
+mysql -u root -p < database/init.sql
+```
+Se aparecer o erro:
+```bash
+'mysql' não é reconhecido como um comando interno ou externo
+```
+significa que o Windows não está encontrando o executável do MySQL no PATH do sistema.
+
+Para corrigir, siga os passos:
+
+#####  1. Localize a pasta bin do MySQL. Exemplo:
+C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+##### 2. Copie o caminho dessa pasta.
+
+##### 3. No Windows, abra o menu Iniciar e pesquise por Editar variáveis de ambiente do sistema.
+
+##### 4. Na janela que abrir, clique em Variáveis de Ambiente.
+
+##### 5. Em Variáveis do sistema, localize e selecione a variável chamada Path.
+
+##### 6. Clique em Editar.
+
+##### 7. Clique em Novo e cole o caminho da pasta bin do MySQL.
+
+##### 8. Salve todas as alterações e feche as janelas.
+
+##### 9. Abra um novo Prompt de Comando (cmd) para que as mudanças tenham efeito.
+
+##### 10. Execute novamente o comando para iniciar o banco:
+
+```bash
+mysql -u root -p < database/init.sql
+```
+
+
+6. Inicie o servidor em modo desenvolvimento (com recarga automática):
 ```bash
 npm run dev
 ```
-5. A API estará disponível em 
+7. A API estará disponível em 
 ```bash
 http://localhost:3000
 ```
