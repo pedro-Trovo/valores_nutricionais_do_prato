@@ -72,14 +72,14 @@ Este projeto foi desenvolvido com objetivo de criar um app que identifica alimen
   <tr>
     <td align="center">
       <a href="https://github.com/pedro-Trovo">
-        <img src="https://github.com/pedro-Trovo.png" width="70" style="border-radius:50%;" alt="pedro-Trovo" />
+        <img src="https://github.com/pedro-Trovo.png?=size70" width="70" alt="pedro-Trovo" />
         <br />
         <sub><b>pedro-Trovo</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/LucasOkokama">
-        <img src="https://github.com/LucasOkokama.png" width="70" style="border-radius:50%;" alt="LucasOkokama" />
+        <img src="https://github.com/LucasOkokama.png?size=70" width="70" alt="LucasOkokama" />
         <br />
         <sub><b>LucasOkokama</b></sub>
       </a>
