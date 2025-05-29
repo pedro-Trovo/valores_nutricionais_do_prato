@@ -82,10 +82,6 @@ Este projeto foi desenvolvido com objetivo de criar um app que identifica alimen
 </a>
 
 <a href=>
-  <img src= />
-</a>
-
-<a href=>
   <img src=/>
 </a>
 
