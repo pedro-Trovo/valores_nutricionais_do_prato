@@ -66,28 +66,54 @@ Este projeto foi desenvolvido com objetivo de criar um app que identifica alimen
 </table>
 
 ---
-
 ## Contribuidores
 
-<a href="https://github.com/pedro-Trovo/valores_nutricionais_do_prato/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=pedro-Trovo/valores_nutricionais_do_prato" />
-</a>
-
-<a href=>
-  <img src= />
-</a>
-
-<a href=>
-  <img src= />
-</a>
-
-<a href=>
-  <img src=/>
-</a>
-
-<a href=>
-  <img src=/>
-</a>
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/pedro-Trovo">
+        <img src="https://github.com/pedro-Trovo.png" width="70" style="border-radius:50%;" alt="pedro-Trovo" />
+        <br />
+        <sub><b>pedro-Trovo</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/LucasOkokama">
+        <img src="https://github.com/LucasOkokama.png" width="70" style="border-radius:50%;" alt="LucasOkokama" />
+        <br />
+        <sub><b>LucasOkokama</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="">
+        <img src="" width="70" style="border-radius:50%;" alt="-------" />
+        <br />
+        <sub><b>-------</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="">
+        <img src="" width="70" style="border-radius:50%;" alt="-------" />
+        <br />
+        <sub><b>-------</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="">
+        <img src="" width="70" style="border-radius:50%;" alt="-------" />
+        <br />
+        <sub><b>-------</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="">
+        <img src="" width="70" style="border-radius:50%;" alt="-------" />
+        <br />
+        <sub><b>-------</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 ---
 
