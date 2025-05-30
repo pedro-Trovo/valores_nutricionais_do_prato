@@ -122,6 +122,7 @@ Este projeto foi desenvolvido com objetivo de criar um app que identifica alimen
 1. Instalar [Node.js](https://nodejs.org/) (inclui npm)
 2. Instalar [MySQL](https://dev.mysql.com/downloads/mysql/)
 3. Instalar [Expo CLI](https://docs.expo.dev/get-started/installation/) para o frontend mobile
+4. Criar uma [API Key](https://ai.google.dev/gemini-api/docs/api-key) do Gemini
 
 
 ---
@@ -151,10 +152,11 @@ npm install
 4. Crie e configure o arquivo .env com as variáveis de ambiente (exemplo):
 ```bash
 DB_HOST=localhost
-DB_USER=???SEU_USUARIO???
-DB_PASSWORD=???SUA_SENHA???
+DB_USER=<SEU_USUARIO>
+DB_PASSWORD=<SUA_SENHA>
 DB_NAME=db_vnp
 PORT=3000
+GEMINI_API_KEY=<SUA_CHAVE_API>
 ```
 
 
