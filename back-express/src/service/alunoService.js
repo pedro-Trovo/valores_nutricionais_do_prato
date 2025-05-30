@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import { alunoRepository } from '../repository/alunoRepository.js';
 
 export const alunoService = {
+  // POST
   async criarAluno(aluno) {
     const existente = await alunoRepository.findByEmail(aluno.email);
     if (existente) {
@@ -24,6 +25,7 @@ export const alunoService = {
     return aluno;
   },
 
+  // GET
   async listarAlunos() {
     return alunoRepository.findAll();
   },
@@ -32,6 +34,7 @@ export const alunoService = {
     return alunoRepository.findById(id);
   },
 
+  // UPDATE
   async atualizarAluno(id, aluno) {
     if (aluno.senha) {
       const saltRounds = 10;
@@ -41,6 +44,7 @@ export const alunoService = {
     return alunoRepository.update(id, aluno);
   },
 
+  // DELETE
   async deletarAluno(id) {
     return alunoRepository.delete(id);
   },

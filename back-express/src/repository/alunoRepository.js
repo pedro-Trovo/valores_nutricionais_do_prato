@@ -1,6 +1,7 @@
 import pool from '../config/db.js';
 
 export const alunoRepository = {
+  // POST
   async create(aluno) {
     const { nome, email, senha } = aluno;
     const [result] = await pool.query(
@@ -10,6 +11,7 @@ export const alunoRepository = {
     return { id: result.insertId, nome, email };
   },
 
+  // GET
   async findAll() {
     const [rows] = await pool.query('SELECT id, nome, email FROM alunos');
     return rows;
@@ -30,6 +32,7 @@ export const alunoRepository = {
     return rows[0];
   },
 
+  // UPDATE
   async update(id, aluno) {
     const { nome, email, senha } = aluno;
     await pool.query(
@@ -39,6 +42,7 @@ export const alunoRepository = {
     return { id, nome, email };
   },
 
+  // DELETE
   async delete(id) {
     await pool.query('DELETE FROM alunos WHERE id = ?', [id]);
   },

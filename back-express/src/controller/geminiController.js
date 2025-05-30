@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 import { geminiService } from '../service/geminiService.js';
 
 export const geminiController = {
+  // POST
   async analyzeDish(req, res) {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);

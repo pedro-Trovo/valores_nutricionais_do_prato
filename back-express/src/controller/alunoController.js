@@ -1,6 +1,7 @@
 import { alunoService } from '../service/alunoService.js';
 
 export const alunoController = {
+  // POST
   async create(req, res) {
     try {
       const alunoCriado = await alunoService.criarAluno(req.body);
@@ -31,6 +32,7 @@ export const alunoController = {
     }
   },
 
+  // GET
   async getAll(req, res) {
     try {
       const alunos = await alunoService.listarAlunos();
@@ -51,6 +53,7 @@ export const alunoController = {
     }
   },
 
+  // UDAPTE
   async update(req, res) {
     try {
       const alunoAtualizado = await alunoService.atualizarAluno(
@@ -63,6 +66,7 @@ export const alunoController = {
     }
   },
 
+  // DELETE
   async delete(req, res) {
     try {
       await alunoService.deletarAluno(req.params.id);
