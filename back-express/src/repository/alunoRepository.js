@@ -1,21 +1,7 @@
-const pool = require('../config/db');
+import pool from '../config/db.js';
 
-const alunoRepository = {
-  async findAll() {
-    const [rows] = await pool.query('SELECT id, nome, email FROM alunos');
-    return rows;
-  },
-
-  async findById(id) {
-    const [rows] = await pool.query('SELECT id, nome, email FROM alunos WHERE id = ?', [id]);
-    return rows[0];
-  },
-
-  async findByEmail(email) {
-    const [rows] = await pool.query('SELECT * FROM alunos WHERE email = ?', [email]);
-    return rows[0];
-  },
-
+export const alunoRepository = {
+  // POST
   async create(aluno) {
     const { nome, email, senha } = aluno;
     const [result] = await pool.query(
@@ -25,6 +11,28 @@ const alunoRepository = {
     return { id: result.insertId, nome, email };
   },
 
+  // GET
+  async findAll() {
+    const [rows] = await pool.query('SELECT id, nome, email FROM alunos');
+    return rows;
+  },
+
+  async findById(id) {
+    const [rows] = await pool.query(
+      'SELECT id, nome, email FROM alunos WHERE id = ?',
+      [id]
+    );
+    return rows[0];
+  },
+
+  async findByEmail(email) {
+    const [rows] = await pool.query('SELECT * FROM alunos WHERE email = ?', [
+      email,
+    ]);
+    return rows[0];
+  },
+
+  // UPDATE
   async update(id, aluno) {
     const { nome, email, senha } = aluno;
     await pool.query(
@@ -34,9 +42,8 @@ const alunoRepository = {
     return { id, nome, email };
   },
 
+  // DELETE
   async delete(id) {
     await pool.query('DELETE FROM alunos WHERE id = ?', [id]);
-  }
+  },
 };
-
-module.exports = alunoRepository;

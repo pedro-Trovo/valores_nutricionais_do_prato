@@ -2,6 +2,7 @@
   "name": "back-express",
   "version": "1.0.0",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
@@ -10,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google/genai": "^1.2.0",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.3.1",
     "express": "^5.1.0",

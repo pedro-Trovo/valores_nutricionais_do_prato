@@ -1,13 +1,13 @@
-const express = require('express');
-const router = express.Router();
-const alunoController = require('../controller/alunoController');
+import express from 'express';
+import { alunoController } from '../controller/alunoController.js';
 
+const router = express.Router();
+
+router.post('/', alunoController.create);
+router.post('/login', alunoController.login);
 router.get('/', alunoController.getAll);
 router.get('/:id', alunoController.getById);
-router.post('/', alunoController.create);
 router.put('/:id', alunoController.update);
 router.delete('/:id', alunoController.delete);
-router.post('/login', alunoController.login);
 
-
-module.exports = router;
+export default router;
