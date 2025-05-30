@@ -18,9 +18,13 @@ export const alunoService = {
 
   async logar(email, senha) {
     const aluno = await alunoRepository.findByEmail(email);
-    if (!aluno) return null;
+    if (!aluno) {
+      return null;
+    }
     const senhaCorreta = await bcrypt.compare(senha, aluno.senha);
-    if (!senhaCorreta) return null;
+    if (!senhaCorreta) {
+      return null;
+    }
     delete aluno.senha;
     return aluno;
   },
@@ -36,6 +40,12 @@ export const alunoService = {
 
   // UPDATE
   async atualizarAluno(id, aluno) {
+    const existente = await alunoRepository.findById(id);
+
+    if (!existente) {
+      return null;
+    }
+
     if (aluno.senha) {
       const saltRounds = 10;
       aluno.senha = await bcrypt.hash(aluno.senha, saltRounds);

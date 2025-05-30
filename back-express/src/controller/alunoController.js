@@ -45,8 +45,9 @@ export const alunoController = {
   async getById(req, res) {
     try {
       const aluno = await alunoService.buscarPorId(req.params.id);
-      if (!aluno)
+      if (!aluno) {
         return res.status(404).json({ error: 'Aluno não encontrado' });
+      }
       res.status(200).json(aluno);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -60,6 +61,11 @@ export const alunoController = {
         req.params.id,
         req.body
       );
+
+      if (!alunoAtualizado) {
+        return res.status(404).json({ error: 'Aluno não encontrado' });
+      }
+
       res.status(201).json(alunoAtualizado);
     } catch (error) {
       res.status(400).json({ error: error.message });
