@@ -1,8 +1,8 @@
-const express = require('express');
-const app = express();
-const alunoRoutes = require('./routes/alunoRoutes');
-require('dotenv').config();
+import express from 'express';
+import alunoRoutes from './routes/alunoRoutes.js';
+import 'dotenv/config';
 
+const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());

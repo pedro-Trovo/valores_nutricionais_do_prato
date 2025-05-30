@@ -1,17 +1,8 @@
-const bcrypt = require('bcrypt');
-const alunoRepository = require('../repository/alunoRepository');
+import bcrypt from 'bcrypt';
+import { alunoRepository } from '../repository/alunoRepository.js';
 
-const alunoService = {
-  async listarAlunos() {
-    return alunoRepository.findAll();
-  },
-
-  async buscarPorId(id) {
-    return alunoRepository.findById(id);
-  },
-
+export const alunoService = {
   async criarAluno(aluno) {
-  
     const existente = await alunoRepository.findByEmail(aluno.email);
     if (existente) {
       throw new Error('Email já cadastrado');
@@ -22,6 +13,23 @@ const alunoService = {
     aluno.senha = hash;
 
     return alunoRepository.create(aluno);
+  },
+
+  async logar(email, senha) {
+    const aluno = await alunoRepository.findByEmail(email);
+    if (!aluno) return null;
+    const senhaCorreta = await bcrypt.compare(senha, aluno.senha);
+    if (!senhaCorreta) return null;
+    delete aluno.senha;
+    return aluno;
+  },
+
+  async listarAlunos() {
+    return alunoRepository.findAll();
+  },
+
+  async buscarPorId(id) {
+    return alunoRepository.findById(id);
   },
 
   async atualizarAluno(id, aluno) {
@@ -36,16 +44,4 @@ const alunoService = {
   async deletarAluno(id) {
     return alunoRepository.delete(id);
   },
-
-  async logar(email, senha) {
-    const aluno = await alunoRepository.findByEmail(email);
-    if (!aluno) return null;
-    const senhaCorreta = await bcrypt.compare(senha, aluno.senha);
-    if (!senhaCorreta) return null;
-    delete aluno.senha;
-    return aluno;
-  }
-
 };
-
-module.exports = alunoService;
