@@ -119,7 +119,7 @@ Este projeto foi desenvolvido com objetivo de criar um app que identifica alimen
 
 ## Pré-requisitos
 
-1. Instalar [Node.js](https://nodejs.org/) (inclui npm)
+1. Instalar [Node.js](https://nodejs.org/)
 2. Instalar [MySQL](https://dev.mysql.com/downloads/mysql/)
 3. Instalar [Expo CLI](https://docs.expo.dev/get-started/installation/) para o frontend mobile
 4. Criar uma [API Key](https://ai.google.dev/gemini-api/docs/api-key) do Gemini
@@ -199,7 +199,7 @@ npm install
 
 4. Crie e configure o arquivo .env com as variáveis de ambiente:
 
-Exemplo:
+##### Exemplo:
 ```bash
 DB_HOST=localhost
 DB_USER=<SEU_USUARIO>
@@ -218,9 +218,9 @@ mysql -u root -p < database/init.sql
 
 Após esse comando, será solicitado que você digite a senha do usuário root do MySQL.
 
-🛠️ Caso o comando mysql não seja reconhecido
 
-Se aparecer o erro:
+- 🛠️ Se o comando mysql não for reconhecido e aparecer o erro:
+
 ```bash
 'mysql' não é reconhecido como um comando interno ou externo
 ```
@@ -277,24 +277,24 @@ npm install
 ```bash
 npx expo install react-dom react-native-web @expo/metro-runtime
 ```
-4. inicie o app com Expo:
+4. Inicie o app com Expo:
 ```bash
 npm start
 ```
-### ▶️ Abertura do app
+5. Abertura do app
+
+#### 🖥️ Navegador com visualização mobile
+
+1. Pressione `w` no terminal.
+2. No navegador, abra as ferramentas de desenvolvedor (`F12` ou `Ctrl+Shift+I`).
+3. Ative o modo responsivo (ícone de celular/tablet no DevTools).
+4. Selecione um dispositivo (ex: iPhone 12) para simular a visualização mobile.
 
 #### 📱 Dispositivo físico
 
 1. Instale o app **Expo Go** no seu celular (Android ou iOS).
 2. Escaneie o QR code que aparece no terminal ou no navegador.
 3. O app será aberto no seu celular via rede local.
-
-#### 🖥️ Navegador com visualização mobile
-
-1. Pressione `w` no terminal ou clique em "Run in web browser" no Expo Dev Tools.
-2. No navegador, abra as ferramentas de desenvolvedor (`F12` ou `Ctrl+Shift+I`).
-3. Ative o modo responsivo (ícone de celular/tablet no DevTools).
-4. Selecione um dispositivo (ex: iPhone 12) para simular a visualização mobile.
 
 #### 📱 Emulador Android/iOS
 
