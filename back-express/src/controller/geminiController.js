@@ -18,7 +18,7 @@ export const geminiController = {
       const foodCaloriesTable = path.join(
         __dirname,
         '../../',
-        'assets/food_calories_table.pdf'
+        'assets/tabela_composicao_alimentos.csv'
       );
 
       const response = await geminiService.analyzeDish(

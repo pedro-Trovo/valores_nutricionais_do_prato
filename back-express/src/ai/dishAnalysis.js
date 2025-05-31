@@ -34,7 +34,7 @@ export async function getDishAnalysis(imagePath, tablePath) {
 
   const foodCaloriesTable = await ai.files.upload({
     file: tablePath,
-    config: { mimeType: 'application/pdf' },
+    config: { mimeType: 'text/csv' },
   });
 
   // Retorna um resposta para cada prompt
