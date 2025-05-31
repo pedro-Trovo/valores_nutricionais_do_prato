@@ -8,8 +8,8 @@
 * [Tecnologias](#tecnologias)
 * [Contribuidores](#contribuidores)
 * [Pré-requisitos](#pré-requisitos)
+* [Análise do Prato de comida](#análise-do-prato-de-comida)
 * [Inicializando o Projeto](#inicializando-o-projeto)
-
   * [Backend](#backend)
   * [Frontend](#frontend)
 * [Protótipo Figma](#protótipo-figma)
@@ -124,6 +124,57 @@ Este projeto foi desenvolvido com objetivo de criar um app que identifica alimen
 3. Instalar [Expo CLI](https://docs.expo.dev/get-started/installation/) para o frontend mobile
 4. Criar uma [API Key](https://ai.google.dev/gemini-api/docs/api-key) do Gemini
 
+---
+
+## Análise do Prato de comida
+
+### 🔗 Endpoint: `POST /gemini/analyze`
+
+### 🧠 O que faz?
+Esse endpoint utiliza inteligência artificial (Google Gemini) para analisar a foto de um prato de comida, cruzando as informações visuais com um arquivo CSV da TACO (Tabela Brasileira de Composição de Alimentos), que contém os dados nutricionais dos alimentos. Através de prompts bem definidos, o modelo gera uma análise nutricional estimada do prato, retornando os alimentos identificados, seus respectivos valores calóricos, os macronutrientes e uma avaliação se o prato é considerado saudável ou não.
+
+### 📥 Request
+| Campo        | Tipo   | Descrição           |
+| ------------ | ------ | ------------------- |
+| `imagePath`  | `file` | Foto do prato (JPG) |
+| `tablePath`  | `file` | Arquivo CSV da TACO |
+
+### 📤 Response
+| Campo             | Tipo    | Descrição                                                                                          |
+| ----------------- | ------- | -------------------------------------------------------------------------------------------------- |
+| `alimentos`       | Array   | Lista de alimentos identificados no prato, contendo nome e calorias de cada alimento.              |
+| `macronutrientes` | Array   | Lista dos macronutrientes totais do prato, contendo nome do macronutriente e quantidade em gramas. |
+| `ehSaudavel`      | Boolean | Indica se o prato é considerado saudável (`true` ou `false`), baseado na composição nutricional.   |
+
+```json
+{
+  "alimentos": [
+    {
+      "alimento": "Arroz",
+      "calorias": 250
+    },
+    {
+      "alimento": "Feijão",
+      "calorias": 150
+    }
+  ],
+  "macronutrientes": [
+    {
+      "macronutriente": "Proteínas",
+      "gramas": 20
+    },
+    {
+      "macronutriente": "Carboidratos",
+      "gramas": 50
+    },
+    {
+      "macronutriente": "Gorduras",
+      "gramas": 15
+    }
+  ],
+  "ehSaudavel": true
+}
+```
 
 ---
 
@@ -132,19 +183,16 @@ Este projeto foi desenvolvido com objetivo de criar um app que identifica alimen
 ### Backend
 
 1. Clone o repositório e entre na pasta backend:
-
 ```bash
 git clone https://github.com/pedro-Trovo/valores_nutricionais_do_prato.git
 ```
 
 2. Entre na pasta backend:
-
 ```bash
 cd valores_nutricionais_do_prato/back-express
 ```
 
 3. Instale as dependências:
-
 ```bash
 npm install
 ```
@@ -166,6 +214,7 @@ Para criar o banco de dados e as tabelas, execute o comando:
 ```bash
 mysql -u root -p < database/init.sql
 ```
+
 Se aparecer o erro:
 ```bash
 'mysql' não é reconhecido como um comando interno ou externo
