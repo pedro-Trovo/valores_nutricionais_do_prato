@@ -24,7 +24,6 @@ export async function getDishAnalysis(imagePath, tablePath) {
   ];
 
   const outputs = [];
-  const formattedOutput = [];
 
   // Importa arquivos (imagem do proto de comida, tabela com os valores nutricionais)
   const dishPhoto = await ai.files.upload({
@@ -60,11 +59,11 @@ export async function getDishAnalysis(imagePath, tablePath) {
   }
 
   // Formata os dados de saída
-  formattedOutput.push({
+  const formattedOutput = {
     alimentos: outputs[0],
     macronutrientes: outputs[1],
     ehSaudavel: outputs[2][0].ehSaudavel,
-  });
+  };
 
   return formattedOutput;
 }
