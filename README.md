@@ -71,45 +71,45 @@ Este projeto foi desenvolvido com objetivo de criar um app que identifica alimen
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/pedro-Trovo">
-        <img src="https://github.com/pedro-Trovo.png?=size70" width="70" alt="pedro-Trovo" />
+      <a href="https://github.com/gustavojoze">
+        <img src="https://github.com/gustavojoze.png?size=70" width="70" alt="Gustavo José" />
         <br />
-        <sub><b>pedro-Trovo</b></sub>
+        <sub><b>Gustavo José</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/JulianaHaddad">
+        <img src="https://github.com/JulianaHaddad.png?size=70" width="70" alt="Juliana Haddad" />
+        <br />
+        <sub><b>Juliana Haddad</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/LucasOkokama">
-        <img src="https://github.com/LucasOkokama.png?size=70" width="70" alt="LucasOkokama" />
+        <img src="https://github.com/LucasOkokama.png?size=70" width="70"  alt="Lucas Okokama" />
         <br />
-        <sub><b>LucasOkokama</b></sub>
+        <sub><b>Lucas Okokama</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/pedro-Trovo">
+        <img src="https://github.com/pedro-Trovo.png?=size70" width="70"  alt="Pedro Trovo" />
+        <br />
+        <sub><b>Pedro Trovo</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="">
-        <img src="" width="70" style="border-radius:50%;" alt="-------" />
+        <img src="https://avatars.githubusercontent.com/u/9919?v=4.png?=size70" width="70" alt="-------" />
         <br />
-        <sub><b>-------</b></sub>
+        <sub><b>Renan</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="">
-        <img src="" width="70" style="border-radius:50%;" alt="-------" />
+      <a href="https://github.com/vicabats">
+        <img src="https://github.com/vicabats.png?size=70" width="70" alt="-------" />
         <br />
-        <sub><b>-------</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="">
-        <img src="" width="70" style="border-radius:50%;" alt="-------" />
-        <br />
-        <sub><b>-------</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="">
-        <img src="" width="70" style="border-radius:50%;" alt="-------" />
-        <br />
-        <sub><b>-------</b></sub>
+        <sub><b>Vitória Batistoti</b></sub>
       </a>
     </td>
   </tr>
@@ -149,7 +149,9 @@ cd valores_nutricionais_do_prato/back-express
 npm install
 ```
 
-4. Crie e configure o arquivo .env com as variáveis de ambiente (exemplo):
+4. Crie e configure o arquivo .env com as variáveis de ambiente:
+
+Exemplo:
 ```bash
 DB_HOST=localhost
 DB_USER=<SEU_USUARIO>
@@ -159,13 +161,16 @@ PORT=3000
 GEMINI_API_KEY=<SUA_CHAVE_API>
 ```
 
-
 5. Iniciando o banco de dados: 
 
 Para criar o banco de dados e as tabelas, execute o comando:
 ```bash
 mysql -u root -p < database/init.sql
 ```
+Após esse comando, será solicitado que você digite a senha do usuário root do MySQL.
+
+🛠️ Caso o comando mysql não seja reconhecido
+
 Se aparecer o erro:
 ```bash
 'mysql' não é reconhecido como um comando interno ou externo
@@ -218,12 +223,35 @@ cd ../mobile
 ```bash
 npm install
 ```
-3. Inicie o app com Expo:
+
+3. Instale as dependências adicionais para rodar no navegador (web):
+```bash
+npx expo install react-dom react-native-web @expo/metro-runtime
+```
+4. inicie o app com Expo:
 ```bash
 npm start
 ```
+### ▶️ Abertura do app
 
-4. Siga as instruções do Expo para abrir o app no emulador ou dispositivo real.
+#### 📱 Dispositivo físico
+
+1. Instale o app **Expo Go** no seu celular (Android ou iOS).
+2. Escaneie o QR code que aparece no terminal ou no navegador.
+3. O app será aberto no seu celular via rede local.
+
+#### 🖥️ Navegador com visualização mobile
+
+1. Pressione `w` no terminal ou clique em "Run in web browser" no Expo Dev Tools.
+2. No navegador, abra as ferramentas de desenvolvedor (`F12` ou `Ctrl+Shift+I`).
+3. Ative o modo responsivo (ícone de celular/tablet no DevTools).
+4. Selecione um dispositivo (ex: iPhone 12) para simular a visualização mobile.
+
+#### 📱 Emulador Android/iOS
+
+1. Certifique-se de que você tem um emulador Android ou iOS configurado.
+2. Pressione `a` (Android) ou `i` (iOS) no terminal.
+3. O app será aberto no emulador.
 
 ## Protótipo Figma
 - Clique no botão abaixo para acessar o protótipo do app no Figma:
