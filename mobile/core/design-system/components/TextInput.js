@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 import {
   TextInput as RNTextInput,
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
-} from "react-native";
-import colors from "design-system/tokens/colors";
-import spacing from "design-system/tokens/spacing";
-import sizes from "design-system/tokens/sizes";
-import Icon from "react-native-vector-icons/MaterialIcons";
-import AppText from "./AppText";
+} from 'react-native';
+import colors from 'design-system/tokens/colors';
+import spacing from 'design-system/tokens/spacing';
+import sizes from 'design-system/tokens/sizes';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import AppText from './AppText';
 
 export default function TextInput({ label, style, ...props }) {
   return (
@@ -22,13 +22,13 @@ export default function TextInput({ label, style, ...props }) {
           placeholderTextColor={colors.gray}
           {...props}
         />
-        {props.secureTextEntry && (
+        {props.hideInput && (
           <TouchableOpacity
             style={styles.icon}
             onPress={props.onHideInputToggle}
           >
             <Icon
-              name={props.hideInput ? "visibility" : "visibility-off"}
+              name={props.secureTextEntry ? 'visibility' : 'visibility-off'}
               size={20}
               color={colors.gray}
             />
@@ -41,26 +41,26 @@ export default function TextInput({ label, style, ...props }) {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    width: '100%',
     marginBottom: spacing.md,
   },
   inputWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     borderColor: colors.gray,
     borderWidth: 1,
     borderRadius: sizes.xs,
-    position: "relative",
+    position: 'relative',
   },
   label: {
-    position: "absolute",
+    position: 'absolute',
     top: -sizes.xs,
     left: spacing.md,
     backgroundColor: colors.white,
     paddingHorizontal: spacing.sm,
     fontSize: sizes.sm,
     color: colors.darkerGray,
-    fontWeight: "500",
+    fontWeight: '500',
     zIndex: 2,
   },
   input: {

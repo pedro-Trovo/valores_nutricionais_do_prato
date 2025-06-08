@@ -1,30 +1,30 @@
-import React, { useState } from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import TextInput from "design-system/components/TextInput";
-import Button from "design-system/components/Button";
-import Header from "design-system/components/Header";
-import spacing from "design-system/tokens/spacing";
-import AppText from "design-system/components/AppText";
-import sizes from "design-system/tokens/sizes";
-import colors from "design-system/tokens/colors";
-import { useNavigation } from "@react-navigation/native";
-import { useLogin } from "../../domain/useLogin";
+import React, { useState } from 'react';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import TextInput from 'design-system/components/TextInput';
+import Button from 'design-system/components/Button';
+import Header from 'design-system/components/Header';
+import spacing from 'design-system/tokens/spacing';
+import AppText from 'design-system/components/AppText';
+import sizes from 'design-system/tokens/sizes';
+import colors from 'design-system/tokens/colors';
+import { useNavigation } from '@react-navigation/native';
+import { useLogin } from '../../domain/useLogin';
 
 export default function LoginScreen() {
   const navigation = useNavigation();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const { login, loading, error } = useLogin();
 
   const handleLogin = async () => {
-    const result = await login({ email, password });
+    const result = await login({ email, senha });
     if (result) {
       // Navegar para a tela principal após o login bem-sucedido
-      console.log("Login bem-sucedido:", result);
+      console.log('Login bem-sucedido:', result);
     }
   };
 
@@ -33,7 +33,7 @@ export default function LoginScreen() {
       <Header
         showHelp={true}
         onHelp={() => {
-          alert("Ajuda!");
+          alert('Ajuda!');
         }}
         showBack={false}
       />
@@ -68,10 +68,10 @@ export default function LoginScreen() {
           <TextInput
             label="Senha"
             placeholder="Insira sua senha"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={true}
-            hideInput={showPassword}
+            value={senha}
+            onChangeText={setSenha}
+            secureTextEntry={!showPassword}
+            hideInput={true}
             onHideInputToggle={() => setShowPassword(!showPassword)}
           />
         </View>
@@ -79,12 +79,12 @@ export default function LoginScreen() {
         <Button title="Entrar" onPress={handleLogin} loading={loading} />
 
         <View style={styles.registerContainer}>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <AppText fontSize={sizes.sm} color={colors.darkerGray}>
               Não tem uma conta?
             </AppText>
             <TouchableOpacity
-              onPress={() => navigation.navigate("RegisterScreen")}
+              onPress={() => navigation.navigate('RegisterScreen')}
               style={{ marginLeft: 4 }}
             >
               <AppText
@@ -106,14 +106,14 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: "100%",
-    alignItems: "center",
+    width: '100%',
+    alignItems: 'center',
     paddingHorizontal: spacing.xl,
     backgroundColor: colors.white,
   },
   logo: {
     marginBottom: spacing.lg,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   loginTitle: {
     marginBottom: spacing.lg,
@@ -122,14 +122,14 @@ const styles = StyleSheet.create({
     marginTop: spacing.md,
   },
   content: {
-    width: "100%",
+    width: '100%',
     paddingHorizontal: spacing.md,
   },
   registerContainer: {
     marginTop: spacing.lg,
-    alignItems: "center",
+    alignItems: 'center',
   },
   registerLink: {
-    textDecorationLine: "underline",
+    textDecorationLine: 'underline',
   },
 });

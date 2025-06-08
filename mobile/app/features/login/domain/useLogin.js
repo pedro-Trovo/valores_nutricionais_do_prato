@@ -6,11 +6,11 @@ export function useLogin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  async function login({ email, password }) {
+  async function login({ email, senha }) {
     setLoading(true);
     setError(null);
     try {
-      const data = await loginService({ email, password });
+      const data = await loginService({ email, senha });
       await AsyncStorage.setItem("user", JSON.stringify(data.aluno));
       return data;
     } catch (err) {
