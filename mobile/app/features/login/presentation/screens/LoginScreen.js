@@ -70,8 +70,8 @@ export default function LoginScreen() {
             placeholder="Insira sua senha"
             value={senha}
             onChangeText={setSenha}
-            secureTextEntry={true}
-            hideInput={showPassword}
+            secureTextEntry={!showPassword}
+            hideInput={true}
             onHideInputToggle={() => setShowPassword(!showPassword)}
           />
         </View>

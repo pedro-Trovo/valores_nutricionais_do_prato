@@ -17,9 +17,10 @@ export default function RegisterScreen() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [confirmPassword, setconfirmPassword] = useState('');
+  const [confirmSenha, setConfirmSenha] = useState('');
 
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmSenha, setShowConfirmSenha] = useState(false);
 
   const { register, loading, error } = useRegister();
 
@@ -74,8 +75,8 @@ export default function RegisterScreen() {
             placeholder="Insira sua senha"
             value={senha}
             onChangeText={setSenha}
-            secureTextEntry={true}
-            hideInput={showPassword}
+            secureTextEntry={!showPassword}
+            hideInput={true}
             onHideInputToggle={() => setShowPassword(!showPassword)}
           />
         </View>
@@ -83,11 +84,11 @@ export default function RegisterScreen() {
           <TextInput
             label="Confirmar Senha"
             placeholder="Insira sua senha novamente"
-            value={confirmPassword}
-            onChangeText={setconfirmPassword}
-            secureTextEntry={true}
-            hideInput={showPassword}
-            onHideInputToggle={() => setShowPassword(!showPassword)}
+            value={confirmSenha}
+            onChangeText={setConfirmSenha}
+            secureTextEntry={!showConfirmSenha}
+            hideInput={true}
+            onHideInputToggle={() => setShowConfirmSenha(!showConfirmSenha)}
           />
         </View>
 
