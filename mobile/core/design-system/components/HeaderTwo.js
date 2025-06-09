@@ -1,28 +1,30 @@
-import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import spacing from '../tokens/spacing';
 import DetailsIcon from '../svgs/DetailsIcon';
 import UserIcon from '../svgs/UserIcon';
 
 export default function HeaderTwo() {
   return (
-    <View style={styles.container}>
-      <TouchableOpacity activeOpacity={0.7}>
-        <Image
-          style={styles.logo}
-          source={require('./../../../assets/logo.png')}
-          resizeMode="contain"
-        ></Image>
-      </TouchableOpacity>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <TouchableOpacity activeOpacity={0.7}>
+          <Image
+            style={styles.logo}
+            source={require('./../../../assets/logo.png')}
+            resizeMode="contain"
+          ></Image>
+        </TouchableOpacity>
 
-      <View style={styles.subcontainer}>
-        <TouchableOpacity activeOpacity={0.5}>
-          <DetailsIcon />
-        </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.5}>
-          <UserIcon />
-        </TouchableOpacity>
+        <View style={styles.subcontainer}>
+          <TouchableOpacity activeOpacity={0.5}>
+            <DetailsIcon />
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.5}>
+            <UserIcon />
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

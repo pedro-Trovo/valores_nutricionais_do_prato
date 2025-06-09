@@ -43,3 +43,5 @@ ios/
 # Expo-specific
 .expo/
 .expo-shared/
+
+back-express/assets/myDish.*
