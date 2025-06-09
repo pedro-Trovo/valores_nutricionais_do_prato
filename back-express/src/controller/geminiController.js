@@ -1,6 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { geminiService } from '../service/geminiService.js';
+import fs from 'fs';
 
 export const geminiController = {
   // POST
@@ -9,11 +10,16 @@ export const geminiController = {
     const __dirname = path.dirname(__filename);
 
     try {
-      const dishPhoto = path.join(
-        __dirname,
-        '../../',
-        'assets/example_dish.jpg'
-      );
+      let dishPhoto = path.join(__dirname, '../../', 'assets/myDish.jpg');
+
+      if (!fs.existsSync(dishPhoto)) {
+        // Se não existir com .jpg, tenta com .jpeg
+        dishPhoto = path.join(__dirname, '../../', 'assets/myDish.jpeg');
+
+        if (!fs.existsSync(dishPhoto)) {
+          throw new Error('Imagem myDish.jpg ou myDish.jpeg não encontrada.');
+        }
+      }
 
       const foodCaloriesTable = path.join(
         __dirname,
