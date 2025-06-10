@@ -1,4 +1,11 @@
-import { Alert, StyleSheet, TouchableOpacity, View } from 'react-native';
+import {
+  Alert,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderTwo from '../../../../../core/design-system/components/HeaderTwo';
 import AppText from 'design-system/components/AppText';
 import sizes from 'design-system/tokens/sizes';
@@ -7,89 +14,197 @@ import spacing from '../../../../../core/design-system/tokens/spacing';
 import { Image } from 'react-native';
 import { useState } from 'react';
 import UploadImageIcon from '../../../../../core/design-system/svgs/UploadImageIcon';
-import * as ImagePicker from 'expo-image-picker';
 import { useFood } from '../../domain/useFood.js';
+import { useUploadImage } from '../../domain/useUploadImage.js';
+import CircularProgress from 'react-native-circular-progress-indicator';
 
 export default function FoodScreen() {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [geminiDataAnalysis, setGeminiDataAnalysis] = useState(null);
+  const [geminiDataAnalysis, setGeminiDataAnalysis] = useState();
+  const [totalMacronutrienteGrama, setTotalMacronutrienteGrama] = useState(0);
+  const [totalCalorias, setTotalCalorias] = useState(0);
 
   const { getGeminiDataAnalysis, loading, error } = useFood();
+  const { getUploadImage } = useUploadImage();
 
   async function uploadImage() {
-    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (!permission.granted) {
-      Alert.alert('Permissão necessário para acessar a galeria de fotos!');
-      return;
-    }
+    const { imageUri, mimeType } = await getUploadImage();
 
-    const pickedImage = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ['images'],
-      allowsEditing: true,
-      aspect: [1, 1],
-      quality: 1,
-      base64: false,
-    });
+    setSelectedImage(imageUri);
 
-    if (!pickedImage.canceled) {
-      const imageUri = pickedImage.assets[0].uri;
-      const mimeType = pickedImage.assets[0].mimeType;
+    try {
+      const result = await getGeminiDataAnalysis(imageUri, mimeType);
 
-      setSelectedImage(imageUri);
+      const somaGrama = result.macronutrientes.reduce(
+        (total, nutriente) => total + nutriente.gramas,
+        0
+      );
+      setTotalMacronutrienteGrama(somaGrama);
 
-      try {
-        const result = await getGeminiDataAnalysis(imageUri, mimeType);
-        setGeminiDataAnalysis(result);
-      } catch (err) {
-        Alert.alert('Erro ao enviar imagem', err.message);
-      }
+      const somaCalorias = result.alimentos.reduce(
+        (total, alimento) => total + alimento.calorias,
+        0
+      );
+      setTotalCalorias(somaCalorias);
+
+      setGeminiDataAnalysis(result);
+    } catch (err) {
+      Alert.alert('Erro ao enviar imagem', err.message);
     }
   }
 
   return (
-    <View style={styles.container}>
-      <HeaderTwo />
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.container}>
+          <HeaderTwo />
 
-      <View style={[styles.subcontainer, { gap: spacing.lg }]}>
-        <View style={styles.subcontainer}>
-          <AppText weight="bold" fontSize={sizes.xl} color={colors.darkerGray}>
-            Envie uma imagem!
-          </AppText>
-        </View>
-
-        <TouchableOpacity
-          style={[styles.box, loading && styles.disabledArea]}
-          onPress={uploadImage}
-          activeOpacity={0.7}
-          disabled={loading}
-        >
-          {selectedImage ? (
-            <Image source={{ uri: selectedImage }} style={styles.image} />
-          ) : (
-            <View style={[styles.placeholder, styles.centerHV]}>
-              <UploadImageIcon iconColor="#aba9a9" />
-              <View style={[styles.centerHV, { gap: 2 }]}>
+          <View style={[styles.centerHV, { gap: spacing.xxl + spacing.lg }]}>
+            <View style={[styles.centerHV, { gap: spacing.lg }]}>
+              <View style={styles.centerHV}>
                 <AppText
                   weight="bold"
-                  fontSize={sizes.lg}
-                  color={colors.semiDarkGray}
+                  fontSize={sizes.xl}
+                  color={colors.darkerGray}
                 >
-                  Selecione uma imagem
-                </AppText>
-                <AppText fontSize={sizes.md} color={colors.semiDarkGray}>
-                  Suporta: JPEG, JPG
+                  Envie uma imagem!
                 </AppText>
               </View>
+
+              <TouchableOpacity
+                style={[styles.box, loading && styles.disabledArea]}
+                onPress={uploadImage}
+                activeOpacity={0.7}
+                disabled={loading}
+              >
+                {selectedImage ? (
+                  <Image source={{ uri: selectedImage }} style={styles.image} />
+                ) : (
+                  <View style={[styles.placeholder, styles.centerHV]}>
+                    <UploadImageIcon iconColor="#aba9a9" />
+                    <View style={[styles.centerHV, { gap: 2 }]}>
+                      <AppText
+                        weight="bold"
+                        fontSize={sizes.lg}
+                        color={colors.semiDarkGray}
+                      >
+                        Selecione uma imagem
+                      </AppText>
+                      <AppText fontSize={sizes.md} color={colors.semiDarkGray}>
+                        Suporta: JPEG, JPG
+                      </AppText>
+                    </View>
+                  </View>
+                )}
+              </TouchableOpacity>
             </View>
-          )}
-        </TouchableOpacity>
-      </View>
-    </View>
+
+            {geminiDataAnalysis && !loading && (
+              <View style={{ width: '100%', gap: 30 }}>
+                <View style={[styles.centerHV, styles.graphBox]}>
+                  <CircularProgress
+                    radius={50}
+                    duration={2000}
+                    value={geminiDataAnalysis.macronutrientes[0].gramas}
+                    maxValue={totalMacronutrienteGrama}
+                    progressValueColor={colors.darkerGray}
+                    title={'Carboidrato'}
+                    titleColor={colors.semiDarkGray}
+                    activeStrokeColor={'#F7C948'}
+                    activeStrokeWidth={5}
+                    inActiveStrokeColor={'#a17500'}
+                    inActiveStrokeWidth={5}
+                  />
+
+                  <CircularProgress
+                    radius={50}
+                    duration={2000}
+                    value={geminiDataAnalysis.macronutrientes[1].gramas}
+                    maxValue={totalMacronutrienteGrama}
+                    progressValueColor={colors.darkerGray}
+                    title={'Proteína'}
+                    titleColor={colors.semiDarkGray}
+                    activeStrokeColor={'#639fff'}
+                    activeStrokeWidth={5}
+                    inActiveStrokeColor={'#00286b'}
+                    inActiveStrokeWidth={5}
+                  />
+
+                  <CircularProgress
+                    radius={50}
+                    duration={2000}
+                    value={geminiDataAnalysis.macronutrientes[2].gramas}
+                    maxValue={totalMacronutrienteGrama}
+                    progressValueColor={colors.darkerGray}
+                    title={'Gordura'}
+                    titleColor={colors.semiDarkGray}
+                    activeStrokeColor={'#fc6868'}
+                    activeStrokeWidth={5}
+                    inActiveStrokeColor={'#8f0000'}
+                    inActiveStrokeWidth={5}
+                  />
+                </View>
+
+                <View style={[styles.centerHV, { gap: 12 }]}>
+                  <AppText
+                    fontSize={sizes.lg}
+                    weight={'bold'}
+                    color={colors.darkerGray}
+                  >
+                    Lista de Alimentos
+                  </AppText>
+                  {geminiDataAnalysis.alimentos.map((item, index) => {
+                    return (
+                      <View
+                        style={{ flexDirection: 'row', gap: 7 }}
+                        key={index}
+                      >
+                        <AppText fontSize={sizes.md} color={colors.darkerGray}>
+                          {item.alimento.charAt(0).toUpperCase() +
+                            item.alimento.slice(1)}
+                        </AppText>
+
+                        <AppText
+                          fontSize={sizes.md}
+                          weight={'black'}
+                          color={colors.darkerGray}
+                        >
+                          ({item.calorias} kcal)
+                        </AppText>
+                      </View>
+                    );
+                  })}
+                </View>
+
+                <View style={[styles.centerHV, { paddingBottom: 50 }]}>
+                  <AppText
+                    fontSize={sizes.lg}
+                    weight={'bold'}
+                    color={colors.darkerGray}
+                  >
+                    Total de Calorias:
+                  </AppText>
+
+                  <AppText
+                    fontSize={sizes.xl}
+                    weight={'black'}
+                    color={colors.darkerGray}
+                  >
+                    {totalCalorias} kcal
+                  </AppText>
+                </View>
+              </View>
+            )}
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   centerHV: {
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -99,10 +214,6 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     gap: spacing.xxl + spacing.md,
-  },
-  subcontainer: {
-    width: '100%',
-    alignItems: 'center',
   },
   box: {
     width: '75%',
@@ -121,5 +232,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderRadius: spacing.sm,
+  },
+  graphBox: {
+    width: '100%',
+    flexDirection: 'row',
+    gap: 18,
+    overflow: 'hidden',
   },
 });
