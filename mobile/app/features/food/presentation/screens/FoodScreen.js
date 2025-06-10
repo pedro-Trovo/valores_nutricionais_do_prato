@@ -7,42 +7,27 @@ import spacing from '../../../../../core/design-system/tokens/spacing';
 import { Image } from 'react-native';
 import { useState } from 'react';
 import UploadImageIcon from '../../../../../core/design-system/svgs/UploadImageIcon';
-import * as ImagePicker from 'expo-image-picker';
 import { useFood } from '../../domain/useFood.js';
+import { useUploadImage } from '../../domain/useUploadImage.js';
 
 export default function FoodScreen() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [geminiDataAnalysis, setGeminiDataAnalysis] = useState(null);
 
   const { getGeminiDataAnalysis, loading, error } = useFood();
+  const { getUploadImage } = useUploadImage();
 
   async function uploadImage() {
-    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (!permission.granted) {
-      Alert.alert('Permissão necessário para acessar a galeria de fotos!');
-      return;
-    }
+    const { imageUri, mimeType } = await getUploadImage();
 
-    const pickedImage = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ['images'],
-      allowsEditing: true,
-      aspect: [1, 1],
-      quality: 1,
-      base64: false,
-    });
+    setSelectedImage(imageUri);
 
-    if (!pickedImage.canceled) {
-      const imageUri = pickedImage.assets[0].uri;
-      const mimeType = pickedImage.assets[0].mimeType;
-
-      setSelectedImage(imageUri);
-
-      try {
-        const result = await getGeminiDataAnalysis(imageUri, mimeType);
-        setGeminiDataAnalysis(result);
-      } catch (err) {
-        Alert.alert('Erro ao enviar imagem', err.message);
-      }
+    try {
+      const result = await getGeminiDataAnalysis(imageUri, mimeType);
+      setGeminiDataAnalysis(result);
+      console.log(result);
+    } catch (err) {
+      Alert.alert('Erro ao enviar imagem', err.message);
     }
   }
 
