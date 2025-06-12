@@ -49,6 +49,7 @@ export default function RegisterScreen() {
                 resizeMode="contain"
               ></Image>
             </View>
+
             <AppText
               weight="bold"
               fontSize={sizes.lg}

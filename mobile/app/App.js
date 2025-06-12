@@ -5,8 +5,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RegisterScreen from './features/register/presentation/screens/RegisterScreen';
 import LoginScreen from './features/login/presentation/screens/LoginScreen';
 import FoodScreen from './features/food/presentation/screens/FoodScreen';
-import ProfileScreen from './features/profile/pesentation/ProfileScreen';
+import ProfileScreen from './features/profile/presentation/ProfileScreen';
 import colors from '../core/design-system/tokens/colors';
+import { UserProvider } from './contexts/UserContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,17 +21,18 @@ export default function App() {
   });
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{ headerShown: false }}
-        initialRouteName="Food"
-      >
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-        <Stack.Screen name="Food" component={FoodScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <UserProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+          <Stack.Screen name="Food" component={FoodScreen} />
+          <Stack.Screen name="Profile" component={ProfileScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </UserProvider>
   );
 }
 

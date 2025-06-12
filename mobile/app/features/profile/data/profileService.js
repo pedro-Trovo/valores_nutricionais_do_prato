@@ -6,11 +6,11 @@ export async function getProfileService(userId) {
   return response.json();
 }
 
-export async function updateProfileService({ id, nome, email }) {
+export async function updateProfileService({ id, nome, email, senha }) {
   const response = await fetch(`http://${API_URL_IPV4}:3000/alunos/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nome, email }),
+    body: JSON.stringify({ nome, email, senha }),
   });
 
   if (!response.ok) throw new Error('Erro ao atualizar os dados');

@@ -4,9 +4,12 @@ import spacing from '../tokens/spacing';
 import { useNavigation } from '@react-navigation/native';
 import DetailsIcon from '../svgs/DetailsIcon';
 import UserIcon from '../svgs/UserIcon';
+import { useContext } from 'react';
+import { UserContext } from './../../../app/contexts/UserContext';
 
 export default function HeaderTwo() {
   const navigation = useNavigation();
+  const { setStoredUser } = useContext(UserContext);
 
   return (
     <View style={styles.container}>
@@ -40,7 +43,10 @@ export default function HeaderTwo() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => {
+            setStoredUser(null);
+            navigation.navigate('Login');
+          }}
           activeOpacity={0.5}
           hitSlop={{ top: 20, bottom: 20, left: 25, right: 25 }}
         >
