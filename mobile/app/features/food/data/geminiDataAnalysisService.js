@@ -1,3 +1,5 @@
+import { API_URL_IPV4 } from '@env';
+
 export async function geminiDataAnalysisService(imageUri, mimeType) {
   const filename = imageUri.split('/').pop();
 
@@ -8,7 +10,7 @@ export async function geminiDataAnalysisService(imageUri, mimeType) {
     type: mimeType,
   });
 
-  const response = await fetch('http://192.168.0.195:3000/gemini/analyze', {
+  const response = await fetch(`http://${API_URL_IPV4}:3000/gemini/analyze`, {
     method: 'POST',
     body: formData,
   });

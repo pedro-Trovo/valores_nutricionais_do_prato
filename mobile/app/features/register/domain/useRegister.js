@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { registerService } from '../data/registerService';
+import { useContext } from 'react';
+import { UserContext } from '../../../contexts/UserContext';
 
 export function useRegister() {
+  const { setStoredUser } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -10,7 +13,7 @@ export function useRegister() {
     setError(null);
     try {
       const data = await registerService({ nome, email, senha });
-      await AsyncStorage.setItem('user', JSON.stringify(data.aluno));
+      setStoredUser(data.id);
       return data;
     } catch (err) {
       setError(err.message);

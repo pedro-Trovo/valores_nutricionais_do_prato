@@ -35,11 +35,11 @@ export default function FoodScreen() {
     try {
       const result = await getGeminiDataAnalysis(imageUri, mimeType);
 
-      const somaGrama = result.macronutrientes.reduce(
-        (total, nutriente) => total + nutriente.gramas,
-        0
-      );
-      setTotalMacronutrienteGrama(somaGrama);
+      // const somaGrama = result.macronutrientes.reduce(
+      //   (total, nutriente) => total + nutriente.gramas,
+      //   0
+      // );
+      // setTotalMacronutrienteGrama(somaGrama);
 
       const somaCalorias = result.alimentos.reduce(
         (total, alimento) => total + alimento.calorias,
@@ -59,7 +59,7 @@ export default function FoodScreen() {
         <View style={styles.container}>
           <HeaderTwo />
 
-          <View style={[styles.centerHV, { gap: spacing.xxl + spacing.lg }]}>
+          <View style={[styles.centerHV, { gap: spacing.xxl }]}>
             <View style={[styles.centerHV, { gap: spacing.lg }]}>
               <View style={styles.centerHV}>
                 <AppText
@@ -101,12 +101,44 @@ export default function FoodScreen() {
 
             {geminiDataAnalysis && !loading && (
               <View style={{ width: '100%', gap: 30 }}>
+                <View style={styles.centerHV}>
+                  <AppText
+                    style={[
+                      styles.textSaudavel,
+                      geminiDataAnalysis.ehSaudavel
+                        ? styles.ehSaudavel
+                        : styles.naoEhSaudavel,
+                    ]}
+                    fontSize={sizes.md}
+                    weight={'bold'}
+                    color={colors.darkerGray}
+                  >
+                    {geminiDataAnalysis.ehSaudavel
+                      ? 'A refeição é SAÚDAVEL'
+                      : 'A refeição NÃO É SAÚDAVEL'}
+                  </AppText>
+                </View>
+
                 <View style={[styles.centerHV, styles.graphBox]}>
                   <CircularProgress
                     radius={50}
                     duration={2000}
-                    value={geminiDataAnalysis.macronutrientes[0].gramas}
-                    maxValue={totalMacronutrienteGrama}
+                    value={geminiDataAnalysis.macronutrientes[0].porcentagem}
+                    maxValue={100}
+                    progressValueColor={colors.darkerGray}
+                    title={'Gordura'}
+                    titleColor={colors.semiDarkGray}
+                    activeStrokeColor={'#fc6868'}
+                    activeStrokeWidth={5}
+                    inActiveStrokeColor={'#8f0000'}
+                    inActiveStrokeWidth={5}
+                  />
+
+                  <CircularProgress
+                    radius={50}
+                    duration={2000}
+                    value={geminiDataAnalysis.macronutrientes[1].porcentagem}
+                    maxValue={100}
                     progressValueColor={colors.darkerGray}
                     title={'Carboidrato'}
                     titleColor={colors.semiDarkGray}
@@ -119,28 +151,14 @@ export default function FoodScreen() {
                   <CircularProgress
                     radius={50}
                     duration={2000}
-                    value={geminiDataAnalysis.macronutrientes[1].gramas}
-                    maxValue={totalMacronutrienteGrama}
+                    value={geminiDataAnalysis.macronutrientes[2].porcentagem}
+                    maxValue={100}
                     progressValueColor={colors.darkerGray}
                     title={'Proteína'}
                     titleColor={colors.semiDarkGray}
                     activeStrokeColor={'#639fff'}
                     activeStrokeWidth={5}
                     inActiveStrokeColor={'#00286b'}
-                    inActiveStrokeWidth={5}
-                  />
-
-                  <CircularProgress
-                    radius={50}
-                    duration={2000}
-                    value={geminiDataAnalysis.macronutrientes[2].gramas}
-                    maxValue={totalMacronutrienteGrama}
-                    progressValueColor={colors.darkerGray}
-                    title={'Gordura'}
-                    titleColor={colors.semiDarkGray}
-                    activeStrokeColor={'#fc6868'}
-                    activeStrokeWidth={5}
-                    inActiveStrokeColor={'#8f0000'}
                     inActiveStrokeWidth={5}
                   />
                 </View>
@@ -232,6 +250,18 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderRadius: spacing.sm,
+  },
+  textSaudavel: {
+    color: colors.tertiary,
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: spacing.sm,
+  },
+  ehSaudavel: {
+    backgroundColor: colors.primary,
+  },
+  naoEhSaudavel: {
+    backgroundColor: colors.error,
   },
   graphBox: {
     width: '100%',
