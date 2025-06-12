@@ -1,13 +1,19 @@
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import AppText from 'design-system/components/AppText';
 import spacing from '../tokens/spacing';
+import { useNavigation } from '@react-navigation/native';
 import DetailsIcon from '../svgs/DetailsIcon';
 import UserIcon from '../svgs/UserIcon';
 
 export default function HeaderTwo() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity activeOpacity={0.7}>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={() => navigation.navigate('Food')}
+      >
         <Image
           style={styles.logo}
           source={require('./../../../assets/logo.png')}
@@ -26,6 +32,15 @@ export default function HeaderTwo() {
 
       <View style={styles.subcontainer}>
         <TouchableOpacity
+          onPress={() => navigation.navigate('Profile')}
+          activeOpacity={0.5}
+          hitSlop={{ top: 20, bottom: 20, left: 25, right: 25 }}
+        >
+          <AppText color={'#c77800'}>Alterar dados</AppText>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Login')}
           activeOpacity={0.5}
           hitSlop={{ top: 20, bottom: 20, left: 25, right: 25 }}
         >

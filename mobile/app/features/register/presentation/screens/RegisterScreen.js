@@ -15,7 +15,6 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { useRegister } from '../../domain/useRegister';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function RegisterScreen() {
   const navigation = useNavigation();
@@ -32,7 +31,7 @@ export default function RegisterScreen() {
 
   const handleCadastro = async () => {
     const result = await register({ nome, email, senha });
-    
+
     if (result) {
       navigation.navigate('Food');
     }
