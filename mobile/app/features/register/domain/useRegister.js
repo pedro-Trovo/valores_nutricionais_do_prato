@@ -10,7 +10,6 @@ export function useRegister() {
     setError(null);
     try {
       const data = await registerService({ nome, email, senha });
-      await AsyncStorage.setItem('user', JSON.stringify(data.aluno));
       return data;
     } catch (err) {
       setError(err.message);

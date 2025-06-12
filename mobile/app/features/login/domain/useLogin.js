@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { loginService } from "../data/loginService";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useState } from 'react';
+import { loginService } from '../data/loginService';
 
 export function useLogin() {
   const [loading, setLoading] = useState(false);
@@ -11,7 +10,6 @@ export function useLogin() {
     setError(null);
     try {
       const data = await loginService({ email, senha });
-      await AsyncStorage.setItem("user", JSON.stringify(data.aluno));
       return data;
     } catch (err) {
       setError(err.message);

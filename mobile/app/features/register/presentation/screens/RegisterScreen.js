@@ -1,7 +1,13 @@
 import AppText from 'design-system/components/AppText';
 import TextInput from 'design-system/components/TextInput';
 import Button from 'design-system/components/Button';
-import { StyleSheet, View, TouchableOpacity, Image, ScrollView } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from 'react-native';
 import sizes from 'design-system/tokens/sizes';
 import colors from 'design-system/tokens/colors';
 import spacing from 'design-system/tokens/spacing';
@@ -9,6 +15,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { useRegister } from '../../domain/useRegister';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function RegisterScreen() {
   const navigation = useNavigation();
@@ -25,8 +32,9 @@ export default function RegisterScreen() {
 
   const handleCadastro = async () => {
     const result = await register({ nome, email, senha });
+    
     if (result) {
-      console.log('Cadastro concluido', result);
+      navigation.navigate('Food');
     }
   };
 

@@ -22,9 +22,9 @@ export default function LoginScreen() {
 
   const handleLogin = async () => {
     const result = await login({ email, senha });
+
     if (result) {
-      // Navegar para a tela principal após o login bem-sucedido
-      console.log('Login bem-sucedido:', result);
+      navigation.navigate('Food');
     }
   };
 
