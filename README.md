@@ -1,4 +1,4 @@
-# 📱🥗 Análise Nutricional de Pratos com Inteligência Artificial
+# 📱🥗 Análise Nutricional de Pratos com IA
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
 
 
@@ -13,13 +13,14 @@
   * [Backend](#backend)
   * [Frontend](#frontend)
 
+<br>
 
 ## Sobre o Projeto
 Este projeto tem como objetivo desenvolver um aplicativo inovador que utiliza inteligência artificial para analisar imagens de refeições e fornecer informações nutricionais detalhadas com base nos alimentos identificados. A partir do envio de uma foto de um prato, o sistema é capaz de reconhecer os itens alimentares presentes e estimar sua composição nutricional, permitindo ao usuário ter uma noção mais clara da qualidade de sua alimentação.
 
 A aplicação oferece uma análise automatizada que indica se o prato é saudável ou não, calcula a quantidade de macronutrientes (proteínas, carboidratos e gorduras) e estima o valor calórico total da refeição. Além disso, apresenta a distribuição nutricional por alimento, facilitando a compreensão do impacto de cada item no todo. O projeto busca unir acessibilidade, praticidade e tecnologia de ponta para promover uma maior conscientização nutricional e auxiliar os usuários a fazerem escolhas alimentares mais equilibradas em seu dia a dia.
 
----
+<br>
 
 ## Contribuidores
 <table>
@@ -69,7 +70,7 @@ A aplicação oferece uma análise automatizada que indica se o prato é saudáv
   </tr>
 </table>
 
----
+<br>
 
 ## Tecnologias
 A aplicação foi desenvolvida com React Native (Expo) no frontend, proporcionando uma experiência mobile intuitiva e responsiva. No backend, utiliza Express.js para a criação dos endpoints responsáveis pela comunicação com a API Gemini e pelo processamento das informações nutricionais. 
@@ -114,25 +115,22 @@ Além disso, o backend também integra um banco de dados MySQL para armazenar de
   </tr>
 </table>
 
----
+<br>
 
 ## Protótipo Figma
-O protótipo e design deste projeto foram desenvolvidos no Figma, garantindo uma interface intuitiva e visualmente atraente.
-
 Clique no botão abaixo para acessar o projeto diretamente no Figma:
-<br><br>
+
 [![Figma Prototype](https://img.shields.io/badge/Figma-Prot%C3%B3tipo-blue?logo=figma&style=for-the-badge)](https://www.figma.com/proto/kbsADu9RapNf2PGsgVe4z5/NutriApp?node-id=1-9&p=f&t=DzcY7YnjhHRYmXEi-1&scaling=contain&content-scaling=fixed&page-id=0%3A1)
 
----
+<br>
 
 ## Pré-requisitos
+1. Instalar [`Node.js`](https://nodejs.org/)
+2. Instalar [`Expo CLI`](https://docs.expo.dev/get-started/installation/) para o frontend mobile
+3. Instalar [`MySQL`](https://dev.mysql.com/downloads/mysql/)
+4. Criar uma [`API Key`](https://ai.google.dev/gemini-api/docs/api-key) do Gemini
 
-1. Instalar [Node.js](https://nodejs.org/)
-2. Instalar [MySQL](https://dev.mysql.com/downloads/mysql/)
-3. Instalar [Expo CLI](https://docs.expo.dev/get-started/installation/) para o frontend mobile
-4. Criar uma [API Key](https://ai.google.dev/gemini-api/docs/api-key) do Gemini
-
----
+<br>
 
 ## Análise do Prato de comida
 
@@ -184,32 +182,33 @@ Esse endpoint utiliza inteligência artificial (Google Gemini) para analisar a f
 }
 ```
 
----
+<br>
 
 ## Inicializando o Projeto
-1. Clone o repositório e entre na pasta backend:
+
+Clone o repositório e entre na pasta backend:
 ```bash
 git clone https://github.com/pedro-Trovo/valores_nutricionais_do_prato.git
 ```
-
-2. Entre na pasta do projeto:
+Entre na pasta do projeto:
 ```bash
 cd valores_nutricionais_do_prato
 ```
 
+<br>
 
-### > Backend
+### Backend
 1. Entre na pasta `back-express`:
 ```bash
 cd back-express
 ```
 
-2. Instale as dependências:
+2. Instale as `dependências`:
 ```bash
 npm install
 ```
 
-3. Crie e configure o arquivo .env com as variáveis de ambiente:
+3. Crie e configure o arquivo `.env` com as variáveis de ambiente:
 ```bash
 > Exemplo
 DB_HOST=localhost
@@ -234,11 +233,7 @@ Se o comando mysql não for reconhecido, significa que o Windows não está enco
 ```
 
 Para corrigir, siga os passos:
-- Localize a pasta bin do MySQL e copie seu caminho:
-```cmd
-> Exemplo
-C:\Program Files\MySQL\MySQL Server 8.0\bin
-```
+- Localize a pasta bin do MySQL e copie seu caminho (exemplo: `C:\Program Files\MySQL\MySQL Server 8.0\bin`)
 
 - No Windows, abra o menu Iniciar e pesquise por `Editar variáveis de ambiente do sistema`.
 
@@ -246,9 +241,7 @@ C:\Program Files\MySQL\MySQL Server 8.0\bin
 
 - Clique em `Editar`, depois em `Novo` e cole o caminho da pasta bin do MySQL.
 
-- Salve todas as alterações e feche as janelas.
-
-- Abra um novo Prompt de Comando (CMD) para que as mudanças tenham efeito.
+- Salve todas as alterações e feche as janelas. Agora abra um novo Prompt de Comando (CMD) para que as mudanças tenham efeito.
 
 - Execute novamente o comando para iniciar o banco:
 ```bash
@@ -256,33 +249,34 @@ mysql -u root -p < database/init.sql
 ```
 
 
-6. Inicie o servidor em modo desenvolvimento (com recarga automática):
+6. Inicie o servidor em modo desenvolvimento:
 ```bash
 npm run dev
 ```
-7. A API estará disponível em 
+7. A API estará disponível em:
 ```bash
 http://localhost:3000
 ```
 
+<br>
 
-### > Frontend
+### Frontend
 1. Entre na pasta `mobile`:
 ```bash
 cd mobile
 ```
 
-2. Instale as dependências:
+2. Instale as `dependências`:
 ```bash
 npm install
 ```
 
-3. Crie e configure o arquivo .env com as variáveis de ambiente:
+3. Crie e configure o arquivo `.env` com as variáveis de ambiente:
 ```bash
 API_URL_IPV4=<SEU_ENDERECO_IPV4>
 ```
 
-4. Inicie o app com Expo:
+4. Inicie o app com `Expo`:
 ```bash
 npm start
 ```
