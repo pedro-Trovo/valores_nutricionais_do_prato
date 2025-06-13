@@ -179,28 +179,31 @@ Esse endpoint utiliza inteligência artificial (Google Gemini) para analisar a f
 ---
 
 ## Inicializando o Projeto
-
-### Backend
-
 1. Clone o repositório e entre na pasta backend:
 ```bash
 git clone https://github.com/pedro-Trovo/valores_nutricionais_do_prato.git
 ```
 
-2. Entre na pasta backend:
+2. Entre na pasta do projeto:
 ```bash
-cd valores_nutricionais_do_prato/back-express
+cd valores_nutricionais_do_prato
 ```
 
-3. Instale as dependências:
+
+### Backend
+1. Entre na pasta `back-express`:
+```bash
+cd back-express
+```
+
+2. Instale as dependências:
 ```bash
 npm install
 ```
 
-4. Crie e configure o arquivo .env com as variáveis de ambiente:
-
-##### Exemplo:
+3. Crie e configure o arquivo .env com as variáveis de ambiente:
 ```bash
+> Exemplo
 DB_HOST=localhost
 DB_USER=<SEU_USUARIO>
 DB_PASSWORD=<SUA_SENHA>
@@ -209,8 +212,7 @@ PORT=3000
 GEMINI_API_KEY=<SUA_CHAVE_API>
 ```
 
-5. Iniciando o banco de dados: 
-
+4. Iniciando o banco de dados:
 Para criar o banco de dados e as tabelas, execute o comando:
 ```bash
 mysql -u root -p < database/init.sql
@@ -218,37 +220,29 @@ mysql -u root -p < database/init.sql
 
 Após esse comando, será solicitado que você digite a senha do usuário root do MySQL.
 
-
-- 🛠️ Se o comando mysql não for reconhecido e aparecer o erro:
-
+Se o comando mysql não for reconhecido, significa que o Windows não está encontrando o executável do MySQL no PATH do sistema. Isso gera o seguinte erro:
 ```bash
 'mysql' não é reconhecido como um comando interno ou externo
 ```
-significa que o Windows não está encontrando o executável do MySQL no PATH do sistema.
 
 Para corrigir, siga os passos:
-
-#####  1. Localize a pasta bin do MySQL. Exemplo:
+- Localize a pasta bin do MySQL e copie seu caminho:
+```cmd
+> Exemplo
 C:\Program Files\MySQL\MySQL Server 8.0\bin
+```
 
-##### 2. Copie o caminho dessa pasta.
+- No Windows, abra o menu Iniciar e pesquise por `Editar variáveis de ambiente do sistema`.
 
-##### 3. No Windows, abra o menu Iniciar e pesquise por Editar variáveis de ambiente do sistema.
+- Na janela que abrir, clique em `Variáveis de Ambiente` e localize e selecione a variável chamada `Path`.
 
-##### 4. Na janela que abrir, clique em Variáveis de Ambiente.
+- Clique em `Editar`, depois em `Novo` e cole o caminho da pasta bin do MySQL.
 
-##### 5. Em Variáveis do sistema, localize e selecione a variável chamada Path.
+- Salve todas as alterações e feche as janelas.
 
-##### 6. Clique em Editar.
+- Abra um novo Prompt de Comando (CMD) para que as mudanças tenham efeito.
 
-##### 7. Clique em Novo e cole o caminho da pasta bin do MySQL.
-
-##### 8. Salve todas as alterações e feche as janelas.
-
-##### 9. Abra um novo Prompt de Comando (cmd) para que as mudanças tenham efeito.
-
-##### 10. Execute novamente o comando para iniciar o banco:
-
+- Execute novamente o comando para iniciar o banco:
 ```bash
 mysql -u root -p < database/init.sql
 ```
@@ -263,41 +257,42 @@ npm run dev
 http://localhost:3000
 ```
 
+
 ### Frontend
-1. Entre na pasta mobile:
+1. Entre na pasta `mobile`:
 ```bash
-cd ../mobile
+cd mobile
 ```
+
 2. Instale as dependências:
 ```bash
 npm install
 ```
 
-3. Instale as dependências adicionais para rodar no navegador (web):
+3. Crie e configure o arquivo .env com as variáveis de ambiente:
 ```bash
-npx expo install react-dom react-native-web @expo/metro-runtime
+API_URL_IPV4=<SEU_ENDERECO_IPV4>
 ```
+
 4. Inicie o app com Expo:
 ```bash
 npm start
 ```
+
 5. Abertura do app
 
 #### 🖥️ Navegador com visualização mobile
-
 1. Pressione `w` no terminal.
 2. No navegador, abra as ferramentas de desenvolvedor (`F12` ou `Ctrl+Shift+I`).
 3. Ative o modo responsivo (ícone de celular/tablet no DevTools).
 4. Selecione um dispositivo (ex: iPhone 12) para simular a visualização mobile.
 
 #### 📱 Dispositivo físico
-
 1. Instale o app **Expo Go** no seu celular (Android ou iOS).
 2. Escaneie o QR code que aparece no terminal ou no navegador.
 3. O app será aberto no seu celular via rede local.
 
 #### 📱 Emulador Android/iOS
-
 1. Certifique-se de que você tem um emulador Android ou iOS configurado.
 2. Pressione `a` (Android) ou `i` (iOS) no terminal.
 3. O app será aberto no emulador.
