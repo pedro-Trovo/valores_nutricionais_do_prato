@@ -227,7 +227,9 @@ mysql -u root -p < database/init.sql
 
 Após esse comando, será solicitado que você digite a senha do usuário root do MySQL.
 
-Se o comando mysql não for reconhecido, significa que o Windows não está encontrando o executável do MySQL no PATH do sistema. Isso gera o seguinte erro:
+Se o comando mysql não for reconhecido, significa que o Windows não está encontrando o executável do MySQL no PATH do sistema. 
+
+Isso gera o seguinte erro:
 ```bash
 'mysql' não é reconhecido como um comando interno ou externo
 ```
@@ -271,7 +273,11 @@ cd mobile
 npm install
 ```
 
-3. Crie e configure o arquivo `.env` com as variáveis de ambiente:
+3. Crie e configure o arquivo `.env` com as variáveis de ambiente.
+ 
+   Para encontrar seu endereço IPV4 basta abrir o `CMD` e digitar `ipconfig`.
+
+   Siga o exemplo:
 ```bash
 API_URL_IPV4=<SEU_ENDERECO_IPV4>
 ```
@@ -291,8 +297,11 @@ npm start
 
 #### 📱 Dispositivo físico
 1. Instale o app **Expo Go** no seu celular (Android ou iOS).
-2. Escaneie o QR code que aparece no terminal ou no navegador.
+2. Escaneie o QR code que aparece no terminal.
 3. O app será aberto no seu celular via rede local.
+
+> [!WARNING]  
+> Caso o `touch` não esteja funcionando, digite `m` no terminal que está executando o Expo. Isso ativará o `dev menu`.
 
 #### 📱 Emulador Android/iOS
 1. Certifique-se de que você tem um emulador Android ou iOS configurado.
