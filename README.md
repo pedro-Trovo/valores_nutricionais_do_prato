@@ -1,31 +1,80 @@
-# Valores Nutricionais do Prato
+# 📱🥗 Análise Nutricional de Pratos com Inteligência Artificial
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
 
 
 # Sumário
-
 * [Sobre o Projeto](#sobre-o-projeto)
-* [Tecnologias](#tecnologias)
 * [Contribuidores](#contribuidores)
+* [Tecnologias](#tecnologias)
+* [Protótipo Figma](#protótipo-figma)
 * [Pré-requisitos](#pré-requisitos)
 * [Análise do Prato de comida](#análise-do-prato-de-comida)
 * [Inicializando o Projeto](#inicializando-o-projeto)
   * [Backend](#backend)
   * [Frontend](#frontend)
-* [Protótipo Figma](#protótipo-figma)
 
 
 ## Sobre o Projeto
+Este projeto tem como objetivo desenvolver um aplicativo inovador que utiliza inteligência artificial para analisar imagens de refeições e fornecer informações nutricionais detalhadas com base nos alimentos identificados. A partir do envio de uma foto de um prato, o sistema é capaz de reconhecer os itens alimentares presentes e estimar sua composição nutricional, permitindo ao usuário ter uma noção mais clara da qualidade de sua alimentação.
 
-Este projeto foi desenvolvido com objetivo de criar um app que identifica alimentos em fotos de pratos usando a API Gemini e calcula os valores nutricionais correspondentes.
+A aplicação oferece uma análise automatizada que indica se o prato é saudável ou não, calcula a quantidade de macronutrientes (proteínas, carboidratos e gorduras) e estima o valor calórico total da refeição. Além disso, apresenta a distribuição nutricional por alimento, facilitando a compreensão do impacto de cada item no todo. O projeto busca unir acessibilidade, praticidade e tecnologia de ponta para promover uma maior conscientização nutricional e auxiliar os usuários a fazerem escolhas alimentares mais equilibradas em seu dia a dia.
 
+---
 
+## Contribuidores
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/gustavojoze">
+        <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/157230452?h=80&w=80&fit=cover&mask=circle" alt="Gustavo José" />
+        <br />
+        <sub><b>Gustavo José</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/JulianaHaddad">
+        <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/102451709?h=80&w=80&fit=cover&mask=circle" alt="Juliana Haddad" />
+        <br />
+        <sub><b>Juliana Haddad</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/LucasOkokama">
+        <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/161041526?h=80&w=80&fit=cover&mask=circle" alt="Lucas Okokama" />
+        <br />
+        <sub><b>Lucas Okokama</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/pedro-Trovo">
+        <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/161767490?h=80&w=80&fit=cover&mask=circle" alt="Pedro Trovo" />
+        <br />
+        <sub><b>Pedro Trovo</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="">
+        <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/9919?h=80&w=80&fit=cover&mask=circle" alt="Renan" />
+        <br />
+        <sub><b>Renan</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/vicabats">
+        <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/44529087?h=80&w=80&fit=cover&mask=circle" alt="Vitória Batistoti" />
+        <br />
+        <sub><b>Vitória Batistoti</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 ---
 
 ## Tecnologias
+A aplicação foi desenvolvida com React Native (Expo) no frontend, proporcionando uma experiência mobile intuitiva e responsiva. No backend, utiliza Express.js para a criação dos endpoints responsáveis pela comunicação com a API Gemini e pelo processamento das informações nutricionais. 
 
-<table align="center">
+Além disso, o backend também integra um banco de dados MySQL para armazenar de forma estruturada os dados dos usuários, como nome, e-mail e informações de login. Para garantir a segurança das credenciais, o projeto utiliza a biblioteca bcrypt, que realiza a hash das senhas antes de armazená-las no banco, protegendo os dados contra acessos não autorizados.<table align="center">
   <tr>
     <th></th>
     <th>Frontend</th>
@@ -66,54 +115,13 @@ Este projeto foi desenvolvido com objetivo de criar um app que identifica alimen
 </table>
 
 ---
-## Contribuidores
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/gustavojoze">
-        <img src="https://github.com/gustavojoze.png?size=70" width="70" alt="Gustavo José" />
-        <br />
-        <sub><b>Gustavo José</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/JulianaHaddad">
-        <img src="https://github.com/JulianaHaddad.png?size=70" width="70" alt="Juliana Haddad" />
-        <br />
-        <sub><b>Juliana Haddad</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/LucasOkokama">
-        <img src="https://github.com/LucasOkokama.png?size=70" width="70"  alt="Lucas Okokama" />
-        <br />
-        <sub><b>Lucas Okokama</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/pedro-Trovo">
-        <img src="https://github.com/pedro-Trovo.png?=size70" width="70"  alt="Pedro Trovo" />
-        <br />
-        <sub><b>Pedro Trovo</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="">
-        <img src="https://avatars.githubusercontent.com/u/9919?v=4.png?=size70" width="70" alt="-------" />
-        <br />
-        <sub><b>Renan</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/vicabats">
-        <img src="https://github.com/vicabats.png?size=70" width="70" alt="-------" />
-        <br />
-        <sub><b>Vitória Batistoti</b></sub>
-      </a>
-    </td>
-  </tr>
-</table>
+## Protótipo Figma
+O protótipo e design deste projeto foram desenvolvidos no Figma, garantindo uma interface intuitiva e visualmente atraente.
+
+Clique no botão abaixo para acessar o projeto diretamente no Figma:
+<br><br>
+[![Figma Prototype](https://img.shields.io/badge/Figma-Prot%C3%B3tipo-blue?logo=figma&style=for-the-badge)](https://www.figma.com/proto/kbsADu9RapNf2PGsgVe4z5/NutriApp?node-id=1-9&p=f&t=DzcY7YnjhHRYmXEi-1&scaling=contain&content-scaling=fixed&page-id=0%3A1)
 
 ---
 
@@ -190,7 +198,7 @@ cd valores_nutricionais_do_prato
 ```
 
 
-### Backend
+### > Backend
 1. Entre na pasta `back-express`:
 ```bash
 cd back-express
@@ -258,7 +266,7 @@ http://localhost:3000
 ```
 
 
-### Frontend
+### > Frontend
 1. Entre na pasta `mobile`:
 ```bash
 cd mobile
@@ -296,9 +304,4 @@ npm start
 1. Certifique-se de que você tem um emulador Android ou iOS configurado.
 2. Pressione `a` (Android) ou `i` (iOS) no terminal.
 3. O app será aberto no emulador.
-
-## Protótipo Figma
-- Clique no botão abaixo para acessar o protótipo do app no Figma:
-<br> <br>
-[![Figma Prototype](https://img.shields.io/badge/Figma-Prot%C3%B3tipo-blue?logo=figma)](https://www.figma.com/proto/kbsADu9RapNf2PGsgVe4z5/NutriApp?node-id=1-9&p=f&t=DzcY7YnjhHRYmXEi-1&scaling=contain&content-scaling=fixed&page-id=0%3A1)
 
