@@ -325,6 +325,8 @@ Para corrigir, siga os passos:
 mysql -u root -p < database/init.sql
 ```
 
+Após esse comando, será solicitado que você digite a senha do usuário root do MySQL.
+
 
 6. Inicie o servidor em modo desenvolvimento:
 ```bash
@@ -374,9 +376,8 @@ npm start
 1. Instale o app **Expo Go** no seu celular (Android ou iOS).
 2. Escaneie o QR code que aparece no terminal.
 3. O app será aberto no seu celular via rede local.
-
-> [!WARNING]  
-> Caso o `touch` não esteja funcionando, digite `m` no terminal que está executando o Expo. Isso ativará o `dev menu`.
+ 
+- Caso o `touch` não esteja funcionando, digite `m` no terminal que está executando o Expo. Isso ativará o `dev menu`.
 
 #### 📱 Emulador Android/iOS
 1. Certifique-se de que você tem um emulador Android ou iOS configurado.
@@ -386,11 +387,11 @@ npm start
 <br>
 
 > [!WARNING] 
-# Aviso Importante
+> # Aviso Importante
 
 Este aplicativo utiliza modelos de inteligência artificial (IA) para realizar estimativas nutricionais a partir de imagens. Embora os algoritmos sejam projetados para fornecer informações precisas com base nos dados disponíveis, os resultados gerados são apenas estimativas e não substituem a avaliação de um profissional de saúde ou nutricionista.
 
 Fatores como qualidade da imagem, iluminação, posicionamento dos alimentos e variações na preparação podem influenciar diretamente na acurácia da análise.
 
-> [!WARNING] Utilize os dados fornecidos como referência e não como diagnóstico definitivo.
+Utilize os dados fornecidos como referência e não como diagnóstico definitivo.
 
