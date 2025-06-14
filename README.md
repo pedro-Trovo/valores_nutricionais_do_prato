@@ -75,7 +75,9 @@ A aplicação oferece uma análise automatizada que indica se o prato é saudáv
 ## Tecnologias
 A aplicação foi desenvolvida com React Native (Expo) no frontend, proporcionando uma experiência mobile intuitiva e responsiva. No backend, utiliza Express.js para a criação dos endpoints responsáveis pela comunicação com a API Gemini e pelo processamento das informações nutricionais. 
 
-Além disso, o backend também integra um banco de dados MySQL para armazenar de forma estruturada os dados dos usuários, como nome, e-mail e informações de login. Para garantir a segurança das credenciais, o projeto utiliza a biblioteca bcrypt, que realiza a hash das senhas antes de armazená-las no banco, protegendo os dados contra acessos não autorizados.<table align="center">
+Além disso, o backend também integra um banco de dados MySQL para armazenar de forma estruturada os dados dos usuários, como nome, e-mail e informações de login. Para garantir a segurança das credenciais, o projeto utiliza a biblioteca bcrypt, que realiza a hash das senhas antes de armazená-las no banco, protegendo os dados contra acessos não autorizados.
+
+<table align="center">
   <tr>
     <th></th>
     <th>Frontend</th>
@@ -84,33 +86,55 @@ Além disso, o backend também integra um banco de dados MySQL para armazenar de
   <tr>
     <th>Linguagens</th>
     <td>
-      <img alt="JavaScript" src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black"/>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+        <img alt="JavaScript" src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black"/>
+      </a>
     </td>
     <td>
-      <img alt="JavaScript" src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black"/>
-      <img alt="SQL" src="https://img.shields.io/badge/sql-%23007ACC.svg?style=for-the-badge&logo=mysql&logoColor=white"/>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+        <img alt="JavaScript" src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black"/>
+      </a>
+      <a href="https://www.mysql.com/">
+        <img alt="SQL" src="https://img.shields.io/badge/sql-%23007ACC.svg?style=for-the-badge&logo=mysql&logoColor=white"/>
+      </a>
     </td>
   </tr>
   <tr>
     <th>Frameworks / Bibliotecas</th>
     <td>
-      <img alt="React Native" src="https://img.shields.io/badge/react--native-%2300D8FF.svg?style=for-the-badge&logo=react&logoColor=white"/>
-      <img alt="Expo" src="https://img.shields.io/badge/expo-1B1F23.svg?style=for-the-badge&logo=expo&logoColor=white"/>
+      <a href="https://reactnative.dev/">
+        <img alt="React Native" src="https://img.shields.io/badge/react--native-%2300D8FF.svg?style=for-the-badge&logo=react&logoColor=white"/>
+      </a>
+      <a href="https://expo.dev/">
+        <img alt="Expo" src="https://img.shields.io/badge/expo-1B1F23.svg?style=for-the-badge&logo=expo&logoColor=white"/>
+      </a>
     </td>
     <td>
-      <img alt="Node.js" src="https://img.shields.io/badge/node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white"/>
-      <img alt="Express" src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge"/>
-      <img alt="MySQL" src="https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white"/>
-      <img alt="bcrypt" src="https://img.shields.io/badge/bcrypt-%23000.svg?style=for-the-badge&logo=npm&logoColor=white"/>
+      <a href="https://nodejs.org/">
+        <img alt="Node.js" src="https://img.shields.io/badge/node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white"/>
+      </a>
+      <a href="https://expressjs.com/">
+        <img alt="Express" src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge"/>
+      </a>
+      <a href="https://www.mysql.com/">
+        <img alt="MySQL" src="https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white"/>
+      </a>
+      <a href="https://www.npmjs.com/package/bcrypt">
+        <img alt="bcrypt" src="https://img.shields.io/badge/bcrypt-%23000.svg?style=for-the-badge&logo=npm&logoColor=white"/>
+      </a>
     </td>
   </tr>
   <tr>
     <th>Editor</th>
     <td>
-      <img alt="Visual Studio Code" src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/>
+      <a href="https://code.visualstudio.com/">
+        <img alt="Visual Studio Code" src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/>
+      </a>
     </td>
     <td>
-      <img alt="Visual Studio Code" src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/>
+      <a href="https://code.visualstudio.com/">
+        <img alt="Visual Studio Code" src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/>
+      </a>
     </td>
   </tr>
 </table>
@@ -127,7 +151,7 @@ Clique no botão abaixo para acessar o projeto diretamente no Figma:
 ## Pré-requisitos
 1. Instalar [`Node.js`](https://nodejs.org/)
 2. Instalar [`Expo CLI`](https://docs.expo.dev/get-started/installation/) para o frontend mobile
-3. Instalar [`MySQL`](https://dev.mysql.com/downloads/mysql/)
+3. Instalar [`MySQL`](https://dev.mysql.com/downloads/mysql/) (não esqueça de ativar a service MySQL80)
 4. Criar uma [`API Key`](https://ai.google.dev/gemini-api/docs/api-key) do Gemini
 
 <br>
@@ -137,7 +161,7 @@ Clique no botão abaixo para acessar o projeto diretamente no Figma:
 ### 🔗 Endpoint: `POST /gemini/analyze`
 
 ### 🧠 O que faz?
-Esse endpoint utiliza inteligência artificial (Google Gemini) para analisar a foto de um prato de comida, cruzando as informações visuais com um arquivo CSV da TACO (Tabela Brasileira de Composição de Alimentos), que contém os dados nutricionais dos alimentos. Através de prompts bem definidos, o modelo gera uma análise nutricional estimada do prato, retornando os alimentos identificados, seus respectivos valores calóricos, os macronutrientes e uma avaliação se o prato é considerado saudável ou não.
+Esse endpoint utiliza inteligência artificial (Google Gemini) para analisar a foto de um prato de comida, cruzando as informações visuais com um arquivo CSV da [`TACO`](https://www.cfn.org.br/wp-content/uploads/2017/03/taco_4_edicao_ampliada_e_revisada.pdf) (Tabela Brasileira de Composição de Alimentos), que contém os dados nutricionais dos alimentos. Através de prompts bem definidos, o modelo gera uma análise nutricional estimada do prato, retornando os alimentos identificados, seus respectivos valores calóricos, os macronutrientes e uma avaliação se o prato é considerado saudável ou não.
 
 ### 📥 Request
 | Campo        | Tipo   | Descrição           |
@@ -198,7 +222,7 @@ cd valores_nutricionais_do_prato
 <br>
 
 ### Backend
-1. Entre na pasta `back-express`:
+1. Entre na pasta `back-express` (crie um terminal especificamente para rodar o Backend):
 ```bash
 cd back-express
 ```
@@ -263,7 +287,7 @@ http://localhost:3000
 <br>
 
 ### Frontend
-1. Entre na pasta `mobile`:
+1. Entre na pasta `mobile` (crie um terminal especificamente para rodar o Frontend):
 ```bash
 cd mobile
 ```
