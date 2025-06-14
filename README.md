@@ -1,5 +1,6 @@
 # 📱🥗 Análise Nutricional de Pratos com IA
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
+![Status](https://img.shields.io/badge/Status-Concluído-success)
+
 
 
 # Sumário
@@ -7,11 +8,17 @@
 * [Contribuidores](#contribuidores)
 * [Tecnologias](#tecnologias)
 * [Protótipo Figma](#protótipo-figma)
+* [App na Prática](#app-na-prática)
+  * [Login](#login)
+  * [Cadastro](#cadastro)
+  * [Enviar Imagem e Ver Resultado](#enviar-imagem-e-ver-resultado)
 * [Pré-requisitos](#pré-requisitos)
 * [Análise do Prato de comida](#análise-do-prato-de-comida)
+* [Endpoints da API](#-endpoints-da-api)
 * [Inicializando o Projeto](#inicializando-o-projeto)
   * [Backend](#backend)
   * [Frontend](#frontend)
+* [Aviso Importante](#aviso-importante)
 
 <br>
 
@@ -54,10 +61,10 @@ A aplicação oferece uma análise automatizada que indica se o prato é saudáv
       </a>
     </td>
     <td align="center">
-      <a href="">
-        <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/9919?h=80&w=80&fit=cover&mask=circle" alt="Renan" />
+      <a href="https://github.com/RenanPJ/">
+        <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/60981219?h=80&w=80&fit=cover&mask=circle" alt="Renan" />
         <br />
-        <sub><b>Renan</b></sub>
+        <sub><b>Renan Pereira</b></sub>
       </a>
     </td>
     <td align="center">
@@ -148,6 +155,19 @@ Clique no botão abaixo para acessar o projeto diretamente no Figma:
 
 <br>
 
+## App na Prática
+
+### Login
+![Login](./readme-gifs/login.gif)
+
+### Cadastro
+![Cadastro](./readme-gifs/cadastro.gif)
+
+### Enviar Imagem e Ver Resultado
+![Envio da Imagem e Exibição da Análise](./readme-gifs/analise-prato.gif)
+
+<br>
+
 ## Pré-requisitos
 1. Instalar [`Node.js`](https://nodejs.org/)
 2. Instalar [`Expo CLI`](https://docs.expo.dev/get-started/installation/) para o frontend mobile
@@ -158,8 +178,10 @@ Clique no botão abaixo para acessar o projeto diretamente no Figma:
 
 ## Análise do Prato de comida
 
-### 🔗 Endpoint: `POST /gemini/analyze`
-
+### 🔗 Endpoint: 
+```bash
+POST /gemini/analyze
+```
 ### 🧠 O que faz?
 Esse endpoint utiliza inteligência artificial (Google Gemini) para analisar a foto de um prato de comida, cruzando as informações visuais com um arquivo CSV da [`TACO`](https://www.cfn.org.br/wp-content/uploads/2017/03/taco_4_edicao_ampliada_e_revisada.pdf) (Tabela Brasileira de Composição de Alimentos), que contém os dados nutricionais dos alimentos. Através de prompts bem definidos, o modelo gera uma análise nutricional estimada do prato, retornando os alimentos identificados, seus respectivos valores calóricos, os macronutrientes e uma avaliação se o prato é considerado saudável ou não.
 
@@ -206,6 +228,35 @@ Esse endpoint utiliza inteligência artificial (Google Gemini) para analisar a f
 }
 ```
 
+<br>
+
+## 📡 Endpoints da API
+
+### 🔸 Criar aluno
+```bash
+POST /aluno
+```
+
+### 🔸 Login do aluno
+```bash
+POST /aluno/login
+```
+### 🔸 Buscar todos os alunos
+```bash
+GET /aluno
+```
+### 🔸 Buscar aluno por ID
+```bash
+GET /aluno/:id
+```
+### 🔸 Atualizar aluno por ID
+```bash
+PUT /aluno/:id
+```
+### 🔸 Deletar aluno por ID
+```bash
+DELETE /aluno/:id
+```
 <br>
 
 ## Inicializando o Projeto
@@ -331,4 +382,15 @@ npm start
 1. Certifique-se de que você tem um emulador Android ou iOS configurado.
 2. Pressione `a` (Android) ou `i` (iOS) no terminal.
 3. O app será aberto no emulador.
+
+<br>
+
+> [!WARNING] 
+# Aviso Importante
+
+Este aplicativo utiliza modelos de inteligência artificial (IA) para realizar estimativas nutricionais a partir de imagens. Embora os algoritmos sejam projetados para fornecer informações precisas com base nos dados disponíveis, os resultados gerados são apenas estimativas e não substituem a avaliação de um profissional de saúde ou nutricionista.
+
+Fatores como qualidade da imagem, iluminação, posicionamento dos alimentos e variações na preparação podem influenciar diretamente na acurácia da análise.
+
+> [!WARNING] Utilize os dados fornecidos como referência e não como diagnóstico definitivo.
 
