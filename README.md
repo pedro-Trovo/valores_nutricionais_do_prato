@@ -395,6 +395,6 @@ Este aplicativo utiliza modelos de inteligência artificial (IA) para realizar e
 
 Fatores como qualidade da imagem, iluminação, posicionamento dos alimentos e variações na preparação podem influenciar diretamente na acurácia da análise.
 
-Utilize os dados fornecidos como referência e não como diagnóstico definitivo.
+Utilize os dados fornecidos como estimativa e não como diagnóstico definitivo.
 
 
