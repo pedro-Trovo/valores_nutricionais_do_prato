@@ -389,9 +389,12 @@ npm start
 > [!WARNING] 
 > # Aviso Importante
 
+Este aplicativo tem caráter acadêmico, seu principal objetivo é demonstrar a viabilidade técnica da integração entre visão computacional e dados nutricionais públicos. Portanto, os resultados não devem ser utilizados para fins médicos ou profissionais.
+
 Este aplicativo utiliza modelos de inteligência artificial (IA) para realizar estimativas nutricionais a partir de imagens. Embora os algoritmos sejam projetados para fornecer informações precisas com base nos dados disponíveis, os resultados gerados são apenas estimativas e não substituem a avaliação de um profissional de saúde ou nutricionista.
 
 Fatores como qualidade da imagem, iluminação, posicionamento dos alimentos e variações na preparação podem influenciar diretamente na acurácia da análise.
 
 Utilize os dados fornecidos como referência e não como diagnóstico definitivo.
+
 
